@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 import DisplayMusic from "./Components/DisplayMusic";
+import AddSong from "./Components/AddSong";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   return (
     <div>
       <DisplayMusic songs={songs} parentSongs={songs}/>
+      <AddSong />
     </div>
   );
 }
