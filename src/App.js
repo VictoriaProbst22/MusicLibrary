@@ -30,23 +30,31 @@ function App() {
   }
 }
 
- function filterSongs(searchTerm){
+const filterSongs = (searchTerm) => {
+  console.log("SearchTerm: ", searchTerm)
   console.log("Songs: ", songs)
   let results = songs.filter((song)=>{
-    if(searchTerm === song.title) {
-      // song.title.includes(searchTerm) || song.artist.include(searchTerm)
+    if(song.title.includes(searchTerm)) {
+      return true;
+    }
+    else if (song.artist.includes(searchTerm)) {
+        return true;
+      
+    }
+     else if(song.album.includes(searchTerm)) {
+        return true;
     }
   })
-  console.log("After filter: ", results)
-  // setSongs(results)
+  console.log("After filter: ", results);
+  setSongs(results);
  }
   
 
   return (
     <div>
-      <SearchBar placeholder={filterSongs}/>
-      <DisplayMusic songs={songs} parentSongs={songs}/>
+      <SearchBar searchSongProp={filterSongs}/>
       <AddSong addNewSongProp={createSong} />
+      <DisplayMusic songs={songs} parentSongs={songs}/>
     </div>
   );
 }
