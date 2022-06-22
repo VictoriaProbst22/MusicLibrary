@@ -7,7 +7,7 @@ const SearchBar = (props) => {
     function handleSubmit(event){
         event.preventDefault();
     
-         console.log("Handle Event: value ", sTerm);
+         console.log(sTerm);
         props.searchSongProp(sTerm);
 
     }

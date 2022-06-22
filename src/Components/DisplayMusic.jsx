@@ -13,10 +13,9 @@ const DisplayMusic = (props) => {
             </tr>
             </thead>
             <tbody>
-            {props.parentSongs.map((song, index)=> {
+            {props.parentSongs.map((song)=> {
               return (
                 <tr>
-                    <td>{index + 1}</td>
                     <td>{song.title}</td>
                     <td>{song.artist}</td>
                     <td>{song.album}</td>

@@ -9,7 +9,7 @@ import SearchBar from "./Components/SearchBar";
 function App() {
 
 
-  const [songs,setSongs] = useState([]);
+  const [songs, setSongs] = useState([]);
 
   useEffect(()=> {
     getAllSongs();
@@ -31,25 +31,32 @@ function App() {
 }
 
 const filterSongs = (searchTerm) => {
-  console.log("SearchTerm: ", searchTerm)
-  console.log("Songs: ", songs)
-  let results = songs.filter((song)=>{
+  
+  let results = songs.filter(
+    function(song){
     if(song.title.includes(searchTerm)) {
       return true;
     }
     else if (song.artist.includes(searchTerm)) {
         return true;
-      
     }
      else if(song.album.includes(searchTerm)) {
         return true;
     }
-  })
-  console.log("After filter: ", results);
+    else if(song.genre.includes(searchTerm)) {
+      return true;
+    }
+    else if(song.release_date.includes(searchTerm)){
+      return true;
+    }
+  });
+  console.log(results);
   setSongs(results);
- }
-  
+ 
 
+ }
+    
+ 
   return (
     <div>
       <SearchBar searchSongProp={filterSongs}/>
