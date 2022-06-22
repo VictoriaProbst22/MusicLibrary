@@ -19,32 +19,27 @@ function App() {
     
     console.log(response.data);
   }
-
-
-
-  function addNewSong(song){
-
-    let tempSong = [song, ...songs];
-    setSongs(tempSong);
-
-  }
-
-
-
+  //function addNewSong(song){
+//
+  //  let tempSong = [song, ...songs];
+  //  setSongs(tempSong);
+  //  console.log(tempSong);
+//
+  //}
 
   async function createSong(newSong){
     let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
     if(response.status === 201){
-        await getAllSongs();
-    }
+      await getAllSongs();
+  
+  }
 }
-
   
 
   return (
     <div>
       <DisplayMusic songs={songs} parentSongs={songs}/>
-      <AddSong addNewSongProp={addNewSong} />
+      <AddSong addNewSongProp={createSong} />
     </div>
   );
 }

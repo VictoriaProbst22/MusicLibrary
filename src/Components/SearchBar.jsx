@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React, { useState } from "react";
 
 
@@ -19,7 +19,7 @@ const AddSong = (props) => {
             artist: artist,
             album: album,
             genre: genre,
-            date: date
+            release_date: date,
         };
         console.log(newEntry);
         props.addNewSongProp(newEntry);
@@ -40,7 +40,7 @@ const AddSong = (props) => {
             <label>Genre</label>
             <input type='text' value={genre} onChange={(event)=> setGenre(event.target.value)} />
             <label>Release Date</label>
-            <input type='date' value={date} onChange={(event)=> setDate(parseFloat(event.target.value))} />
+            <input type='date' value={date} onChange={(event)=> setDate(event.target.value)} />
             <button type="submit" > Add </button>
 
         </form>
