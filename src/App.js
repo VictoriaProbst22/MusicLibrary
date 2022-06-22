@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 import DisplayMusic from "./Components/DisplayMusic";
-import AddSong from "./Components/SearchBar";
+import AddSong from "./Components/AddSong";
+import SearchBar from "./Components/SearchBar";
+
 
 
 function App() {
@@ -16,16 +18,9 @@ function App() {
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:8000/music/');
     setSongs(response.data);
-    
     console.log(response.data);
   }
-  //function addNewSong(song){
-//
-  //  let tempSong = [song, ...songs];
-  //  setSongs(tempSong);
-  //  console.log(tempSong);
-//
-  //}
+
 
   async function createSong(newSong){
     let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
@@ -34,10 +29,22 @@ function App() {
   
   }
 }
+
+ function filterSongs(searchTerm){
+  console.log("Songs: ", songs)
+  let results = songs.filter((song)=>{
+    if(searchTerm === song.title) {
+      // song.title.includes(searchTerm) || song.artist.include(searchTerm)
+    }
+  })
+  console.log("After filter: ", results)
+  // setSongs(results)
+ }
   
 
   return (
     <div>
+      <SearchBar placeholder={filterSongs}/>
       <DisplayMusic songs={songs} parentSongs={songs}/>
       <AddSong addNewSongProp={createSong} />
     </div>
