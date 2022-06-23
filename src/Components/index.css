@@ -1,0 +1,22 @@
+.header-nav {
+    border-radius: 75px;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 15px;
+
+}
+
+.search-body {
+    border-radius: 5px;
+    height: 100px;
+    background-color: cadetblue;
+    text-align: center;
+    margin-bottom: 35px;
+    padding-top: 30px;
+}
+.library-body{
+    border-radius: 10px;
+    height: 150px;
+    background-size: cover;
+    background-image: url(./assests/listening-to-music-headphones.webp);
+}

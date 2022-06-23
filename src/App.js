@@ -3,6 +3,7 @@ import axios from "axios";
 import DisplayMusic from "./Components/DisplayMusic";
 import AddSong from "./Components/AddSong";
 import SearchBar from "./Components/SearchBar";
+import NavBar from "./Components/NavBar";
 
 
 
@@ -59,6 +60,7 @@ const filterSongs = (searchTerm) => {
  
   return (
     <div>
+      <NavBar />
       <SearchBar searchSongProp={filterSongs}/>
       <AddSong addNewSongProp={createSong} />
       <DisplayMusic songs={songs} parentSongs={songs}/>

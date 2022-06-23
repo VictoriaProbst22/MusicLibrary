@@ -30,7 +30,8 @@ const AddSong = (props) => {
 
 
     return ( 
-        <form onSubmit={handleSubmit}>
+        
+        <form class="search-body" onSubmit={handleSubmit}>
             <label>Title</label>
             <input type='text' value={title} onChange={(event)=> setTitle(event.target.value)} />
             <lable>Artist</lable>
@@ -42,8 +43,7 @@ const AddSong = (props) => {
             <label>Release Date</label>
             <input type='date' value={date} onChange={(event)=> setDate(event.target.value)} />
             <button type="submit" > Add </button>
-
-        </form>
+         </form>
      );
 }
  

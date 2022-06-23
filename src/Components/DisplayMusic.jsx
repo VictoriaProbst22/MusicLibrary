@@ -3,7 +3,7 @@ const DisplayMusic = (props) => {
     console.log(props.songs);
 
     return ( 
-        <table>
+        <table class="library-body">
             <thead>
             <tr> <th>Title</th>
                 <th>Artist</th>
